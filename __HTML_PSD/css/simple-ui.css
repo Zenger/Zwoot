@@ -1,0 +1,13 @@
+.elastic { width:960px; display:block; margin:0 auto;}
+a,button,input { outline:none;}
+.sui-button
+{
+    border:none;
+    padding:3px 16px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #000;
+}
+
+.sui-button:hover {
+    cursor:pointer;
+}

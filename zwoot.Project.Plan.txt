@@ -1,0 +1,85 @@
+BUILD NOTES:
+
+Argument : ini file because of faster development
+
+Steps you do when creating a wordpress theme:
+
+1. You prepare your workspace
+	- Install wordpress
+	- Create database
+	- Editors , css , html
+	
+2. You create your theme
+	- Name your theme
+	- Start from somewhere (bones/ digwp)
+	
+
+	! Steps you make when you create a custom theme !
+	
+		- Judging by the PSD, HTML/CSS you select the:
+			- Custom post types
+			- Nav Menus
+			- Sidebars
+			- Galleries
+			- Plugins
+			- Multilingual
+			
+		- You create a structure
+			- Cut Header, Footer
+			- Place logical content in places
+			- Search 
+		
+		- Setup an options page to allow end-users change some kind of options
+			- Depending on options you show layouts
+			
+		- If theme has Slideshows import theme to theme.
+		
+		- If theme requires lightbox , colorobx
+		
+		
+		- Write an ajax backbone.
+		
+		- You setup metaboxes
+		
+		
+		
+
+	@ What Zwoot should to!
+	
+	- Write your backbone of files and create the logical backend structure you require
+		- Allow you easily setup the :
+			Sidebar, nav menus, widgets, custom post types
+		- Create a set of utility functions like
+			header fill with data, protection, seo support from scratch.
+			
+		- @TODO : Languages
+		
+		- Create a theme options page.
+		
+		- Create the ajax backbone.
+		
+		- Allow you setup metaboxes.
+		
+	--- Speed up development
+	
+		-- Cache engine
+		-- Template Engine 
+		-- Rewrite Engine compliant with wordpress
+		-- Set of functions (default menus, css3 menus ! ideea)
+		-- AjaxPages ? Why not ! :)
+		
+	--- Ease for end user
+		
+		-- Quick config modifications by changing a few lines
+		-- Video/Text lessons
+		-- Clean and easy to understand code.
+		-- Common pages automated : Search , 404
+		-- Facebook , google plus ,twitter
+		
+	--- The Zwoot may or may not be used as a theme it might be used as a plugin.
+	
+	--- OOP approach but easy for new developers.
+	
+	--- @TODO move to other platforms.
+	
+	--- @TODO design, code pattern.
