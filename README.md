@@ -2,9 +2,11 @@ Zwoot
 =====
 
 A wordpress Framework for faster Web Development
+
 There is a working plan at zwoot.Project.Plan.txt which you can read.
 
 Zwoot stands for
+
 	[Z]enger(ME) [W]bx(CO-Author) [Ut]ilities
 
 To give you an ideea of what the framework tends to be:
