@@ -23,6 +23,7 @@ Steps you do when creating a wordpress theme:
 			- Galleries
 			- Plugins
 			- Multilingual
+			- Seo Implementation / multi language
 			
 		- You create a structure
 			- Cut Header, Footer
