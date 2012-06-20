@@ -1,13 +1,83 @@
 .elastic { width:960px; display:block; margin:0 auto;}
 a,button,input { outline:none;}
-.sui-button
-{
-    border:none;
-    padding:3px 16px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px #000;
+a{outline:none}
+body {font-family:Ubuntu;}
+
+/* Simple Ui Elements for Zwoot */
+/* Version: 0.1 */
+
+.zwoot {
+    font-family:Ubuntu;
+    font-size:14px;
 }
 
-.sui-button:hover {
+/* Buttons */
+.zwoot-button, .zw-btn ,.zwoot[type=button], .zwoot[type=submit] {
+    padding:3px 16px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+    border:1px solid #b0b0b0;
+    color:#5d728a;
+    font-size:14px;
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #f2f2f2 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#f2f2f2 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%,#f2f2f2 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%,#f2f2f2 100%); /* IE10+ */
+    background: linear-gradient(top, #ffffff 0%,#f2f2f2 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+}
+
+.zwoot-button:hover, .zw-btn, .zwoot[type=button], .zwoot[type=submit] {
     cursor:pointer;
+    text-shadow:1px 1px 2px #fff;
+    background: #eaf4ff; /* Old browsers */
+    background: -moz-linear-gradient(top, #eaf4ff 0%, #cbe0f8 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eaf4ff), color-stop(100%,#cbe0f8)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #eaf4ff 0%,#cbe0f8 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #eaf4ff 0%,#cbe0f8 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #eaf4ff 0%,#cbe0f8 100%); /* IE10+ */
+    background: linear-gradient(top, #eaf4ff 0%,#cbe0f8 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaf4ff', endColorstr='#cbe0f8',GradientType=0 ); /* IE6-9 */
+}
+
+.zwoot-button:active, .zw-btn:active, .zwoot-button.active, .zw-btn.active, .zwoot[type=button].active ,.zwoot[type=submit].active
+{
+    background: #cbe0f8; /* Old browsers */
+    background: -moz-linear-gradient(top, #cbe0f8 0%, #eaf4ff 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cbe0f8), color-stop(100%,#eaf4ff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #cbe0f8 0%,#eaf4ff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #cbe0f8 0%,#eaf4ff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #cbe0f8 0%,#eaf4ff 100%); /* IE10+ */
+    background: linear-gradient(top, #cbe0f8 0%,#eaf4ff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cbe0f8', endColorstr='#eaf4ff',GradientType=0 ); /* IE6-9 */
+}
+
+
+/* Thanks to : http://www.maxdesign.com.au/articles/multiple-classes/ */
+
+/* Hide checkbox and radio */
+p.zw-chk:not(#foo) >  input[type='radio'], 
+p.zw-chk:not(#foo) >  input[type='checkbox'] {
+    opacity: 0;
+    float: left;
+    width: 17px;
+    height:15px;
+}
+
+
+
+/* Checkbox */
+p.zw-chk:not(#foo) > input[type='checkbox'] + label {
+    margin: 0;
+    clear: none;
+    padding:0px 0px 0px  20px;
+    cursor: pointer;
+    background: url("../images/checkbox.png") 0 0  no-repeat;
+    
+}
+
+p.zw-chk:not(#foo) > input[type='checkbox']:checked + label {
+    background-image: url("../images/checkbox-checked.png");
 }

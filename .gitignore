@@ -1,0 +1,6 @@
+.komodotools
+.komodotools/*
+MyProject.komodoproject
+template.ini~
+.git
+.git/*

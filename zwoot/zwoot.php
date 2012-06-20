@@ -47,12 +47,6 @@
     /* Load safe replacements in case we don't have a WP instance */
     require('system/ZwootAnalogs.php');
     
-
-    
-    
-   
-    
-    
     class Zwoot
     {
 	/* We hold all the precious config here */
@@ -85,6 +79,30 @@
 	    {
 		return self::$config[$key];
 	    }
+	}
+	
+	/* Parse diasbled for future implementation */
+	public static function __filter($str = null, $filter = null , $parse_disabled = false)
+	{
+	    $symbols = array('/','!','@','#','$','%','^','&','*',')', '(', '"', "'", '\\' ,"/" , ':',';', '.',',','+','-','`','~' );
+	    
+	    $__filters = array(
+		'array_key' => strtolower( htmlspecialchars( strip_tags(  str_replace(array($symbols,' ') , '_', $str ) ) )) ,
+		'filter' => filter_var( $str , FILTER_SANITIZE_SPECIAL_CHARS )
+	    );
+	    
+	    if ($filter == "ini")
+	    {
+		/* Filter ini comma separated settings */
+		$_ini_conf = explode(",", $str);
+		foreach($_ini_conf as $k=>$v)
+		{
+		    $_ini_conf[$k] =  trim(self::__filter( $v , 'filter' ));
+		}
+		$__filters['ini'] = $_ini_conf;
+	    }
+	    
+	    return $__filters[$filter];
 	}
 	
 	

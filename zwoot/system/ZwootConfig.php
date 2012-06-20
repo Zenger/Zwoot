@@ -9,6 +9,9 @@
     /* Include all libraries */
     
     require('ZwootAdminUi.php');
+    require('ZwootMenu.php');
+    require('ZwootSidebar.php');
+    
     
     class ZwootConfig extends Zwoot
     {
@@ -54,10 +57,35 @@
 	public static function LoadConfig()
 	{
 	    /* If an UI is required Init UI */
-	    if (parent::$config['system']['show_admin_ui'] == true) // yes == not === , parse_ini_file returns 1 on true and 0 on false (note)
+	    if (parent::$config['system']['show_admin_ui'] == true) 
 	    {
 		ZwootAdminUi::Run();
 	    }
+	    
+	    /* Load Menus */
+	    
+	    if (!empty(parent::$config['menus']))
+	    {
+		foreach(parent::$config['menus']['menu'] as $menu)
+		{
+		    ZwootMenu::$menus[] = $menu;
+		}
+		
+		ZwootMenu::RegisterMenus();
+	    }
+	    
+	    /* Load Sidebars */
+	    
+	    if (!empty(parent::$config['sidebars']))
+	    {
+		foreach(parent::$config['sidebars']['sidebar'] as $sidebar)
+		{
+		    ZwootSidebar::$sidebars[] = $sidebar;
+		}
+		
+		ZwootSidebar::RegisterSidebars();
+	    }
+	    
 	}
 	
 	/* Set the default values */
