@@ -2,35 +2,22 @@
     /* init the core run the Framework */
     define('ZwootApp' , true); // Security Fix
     
-    define('ZwootFlavour' , 'plugin_theme'); //for later implementation , see Work Plan
+    /* Zwoot - What am I ? Plugin or Theme */
+    define('ZwootWai' , rtrim ( basename( dirname(dirname(dirname(__FILE__) )) ) , 's' ) ) ;
     
-    /* ZwootWai - Zwoot , What am I? , a plugin or a theme. */
-    if ( strpos( __FILE__ , '/plugins/') === false )
+    /* Zwoot - Where am i ? */
+    define('ZwootWeai' , dirname(dirname(__FILE__)) );
+    
+    /* Zwoot url */
+    $path = explode('wp-content', __FILE__);
+    if (ZwootWai == "theme")
     {
-	define('ZwootWai', 'theme');
+	define('ZwootUrl' , get_template_directory_uri() . "/zwoot/" );
     }
     else
     {
-	define('ZwootWai' , 'plugin');
+	define('ZwootUrl' , plugins_url() . "/zwoot/" );
     }
-    
-    /* ZwootWeai - Zwoot, Where am I? , sets the Zwoot folder */
-
-    define('ZwootWeai' , preg_replace('/\/zwoot$/i', '' , dirname(__FILE__) ) );
-    
-    /* Get the proper URL */
-    
-    $path = explode('wp-content' , ZwootWeai);
-    if (ZwootWai == "plugin")
-    {
-	define("ZwootUrl" , get_bloginfo('url') . '/wp-content' . $path[1] );
-    }
-    else
-    {
-	define("ZwootUrl" , get_bloginfo('url') . '/wp-content' . $path[1]  );
-    }
-    
-   
     
     /*
       Some system variables which you shouldn't touch yet, if they prove to be ok, will be moved to the ini file, thanks.
@@ -47,15 +34,14 @@
     /* Load safe replacements in case we don't have a WP instance */
     require('system/ZwootAnalogs.php');
     
+    /* Main Framework Class */
     class Zwoot
     {
 	/* We hold all the precious config here */
 	protected static $config;
 	
 	protected static $__instance;
-	
-	
-	
+
 	/* Init every piece of the framework based on the configuration */
 	public function __construct()
 	{
@@ -81,8 +67,10 @@
 	    }
 	}
 	
-	/* Parse diasbled for future implementation */
-	public static function __filter($str = null, $filter = null , $parse_disabled = false)
+	/* @parse_disabled  = In ini config strings  will parse disabled (for future)
+	   @parse_vars = In ini config strings will be used vars, this will replace them with vars.
+	*/
+	public static function __filter($str = null, $filter = null , $parse_vars = false,  $parse_disabled = false )
 	{
 	    $symbols = array('/','!','@','#','$','%','^','&','*',')', '(', '"', "'", '\\' ,"/" , ':',';', '.',',','+','-','`','~' );
 	    

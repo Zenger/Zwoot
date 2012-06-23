@@ -1,7 +1,7 @@
 <?php
     /*  Plugin Name: Zwoot Framework
 	Description: A faster theme development
-	Version: 1.0.6
+	Version: 1.0.61
 	Author: Zenger & Wbx
 	Plugin URI: #to-be-later
 	Author URI: #to-be-later
