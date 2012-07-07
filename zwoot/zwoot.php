@@ -55,7 +55,7 @@
 	}
 	
 	
-	public static function getConfig($key = null)
+	public static function getConfig($key = null , $array_index = null , $default = null)
 	{
 	    if (empty($key))
 	    {
@@ -63,7 +63,30 @@
 	    }
 	    else
 	    {
-		return self::$config[$key];
+		if ($array_index == null)
+		{
+		    return self::$config[$key];
+		}
+		else
+		{
+		    $value = trim(self::$config[$key][$array_index]);
+		    if (empty($value))
+		    {
+			$default = trim($default);
+			if (empty($default))
+			{
+			    return;
+			}
+			else
+			{
+			    return $default;
+			}
+		    }
+		    else
+		    {
+			return $value;
+		    }
+		}
 	    }
 	}
 	
@@ -92,6 +115,23 @@
 	    
 	    return $__filters[$filter];
 	}
+	
+	/* A helper function for default items , df = a shorthand of Default
+	     @param string $string The string to be checked
+	     @param string $default The default value which will be returned in case $string is empty
+	 */
+	 public static function df($string , $default)
+	 {
+	     $string = trim ( $string );
+	     if (empty($string))
+	     {
+		 return $default;
+	     }
+	     else
+	     {
+		 return $string;
+	     }
+	 }
 	
 	
     }
