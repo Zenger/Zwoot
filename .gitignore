@@ -1,0 +1,5 @@
+deprecated/
+deprecated/*
+*.komodoproject
+framework/depr
+framework/depr/*
