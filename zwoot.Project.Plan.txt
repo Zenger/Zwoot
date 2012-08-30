@@ -1,6 +1,10 @@
 BUILD NOTES:
 
-Argument : ini file because of faster development
+========
+Ideea: Wordpress tutorial how to use the framework
+=========
+
+Argument : ini file because of faster (easier) development
 
 Steps you do when creating a wordpress theme:
 

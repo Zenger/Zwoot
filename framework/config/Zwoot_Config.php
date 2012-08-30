@@ -157,6 +157,24 @@
 
             return $new_config;
         }
+        
+        // Returns wordpress config information
+        public static function read($key = 'uri')
+        {
+            $bloginfo = array(
+                'site_url',
+                'url',
+                'admin_email'
+            );
+            
+            if (in_array($key, $bloginfo)) return $bloginfo[$key];
+            
+            if ($key == "url" || $key == "site_url" || $key == "siteurl") return site_url();
+            if ($key == "template" || $key == "template_uri" || $key == "theme") return get_template_directory_uri();
+            if ($key == "template_path" || $key == "theme_path") return get_template_directory();
+            
+            // Read From database zwoot data
+        }
      
     }
 ?>

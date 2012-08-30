@@ -1,6 +1,5 @@
 <?php
 
-
     ini_set("display_errors" , 1);
     ini_set("error_reporting" , 2);
     error_reporting(E_PARSE | E_ERROR | E_DEPRECATED | E_WARNING);
@@ -17,15 +16,15 @@
     /* Zwoot url */
     if (ZwootWai == "theme")
     {
-	define('ZwootUrl' , get_template_directory_uri() . DIRECTORY_SEPARATOR . basename(dirname(dirname(__FILE__))) );
+	define('ZwootUrl' , get_template_directory_uri() . "/" . basename(dirname(dirname(__FILE__))) );
     }
     else
     {
-	define('ZwootUrl' , plugins_url() . DIRECTORY_SEPARATOR . basename(dirname(dirname(__FILE__))) );
+	define('ZwootUrl' , plugins_url() . "/" . basename(dirname(dirname(__FILE__))) );
     }
    
     /* Public Folder Location */
-    define("ZwootPublic" , ZwootUrl . DIRECTORY_SEPARATOR . "public" );
+    define("ZwootPublic" , ZwootUrl  . "/public" );
     
     // Critical vs Plain Exceptions
     class CriticalException extends Exception  {
@@ -35,20 +34,28 @@
 	}
     }
 
- 
+	// Zwoot Classes
+	$Zwoot_Classes = array(
+	    'Zwoot_Config',
+	    'Zwoot_Config_Helper',
+	    'Zwoot_Config_AdminUI',
+	    'Zwoot_UI_Template',
+	    'Zwoot_UI_Sidebar',
+	    'Zwoot_UI_Menu',
+	    'Zwoot_UI_Admin'
+	);
+	
+	foreach($Zwoot_Classes as $class)
+	{
+	    Zwoot_Load($class);
+	}
     
     /* Main Framework Classes Autoloader */
     
     function Zwoot_Load( $class )
     {
-	
 	// Include only classes that are part of Zwoot
 	if (strpos($class , "Zwoot_") === false) return;
-	    
-	$wordpress = array('WP_User_Search'); //workaround for autoload
-	
-	if (in_array($class,$wordpress)) return;
-	
 	
 	$file_name = explode("_",  str_replace("Zwoot_" , "" , $class));
 	$folder = strtolower($file_name[0]);
@@ -81,8 +88,7 @@
 	}
 	
     }
-    // Autoload > PHP 5.1.2
-    spl_autoload_register('Zwoot_Load');
+
     
     // Filter var > 5.2.0
     
@@ -104,6 +110,7 @@
 	    {
 		$e->wp_die();
 	    }
+	
 	    
 	    
 	}

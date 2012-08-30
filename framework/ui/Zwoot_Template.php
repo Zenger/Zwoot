@@ -8,24 +8,9 @@
             
         }
         
-        public function wrapper_start()
-        {
-            echo '<div id="zwoot-wrapper"> NOT WHAT YOU WANT <BR />';
-        }
-        
-        public function wrapper_end()
-        {
-            echo "WRAPPER CLOSED</div>";
-        }
-        
-        public function field_text()
+        public function parse_front_template()
         {
             
-        }
-        
-        public function __destruct()
-        {
-            //
         }
     }
 ?>

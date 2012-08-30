@@ -20,6 +20,7 @@
                 'trim',
                 'key',
                 'ini',
+                'os_dir',
                 'clean' //removes special chars (doesn't filter, but removes (must be called before filter))
             );
             
@@ -152,6 +153,13 @@
             return $value;
         }
         
+        /* Parses a string and return the right directory separator for different OS */
+        public function os_dir($value)
+        {
+            $ds = DIRECTORY_SEPARATOR;
+            return str_replace(array('/', '\\') , $ds , $value);
+        }
+        
     
         public function __destruct()
         {
@@ -171,7 +179,23 @@
     function zwoof( $value , $filters = null , $params = null )
     {
         $filter = new Zwoot_Config_Helper($value , $filters, $params);
-        return $filter->value;
+        return $filter->get();
+    }
+    
+    /* Small Debugging function */
+    function zwood($var, $action, $file, $line, $render = array('meta' => true) )
+    {
+        if ($action == "v" || $action == "var_dump")
+        {
+            var_dump($var);
+        }
+        else
+        {
+            print_r($var);
+        }
+        
+        echo "Line: " . $line. " in " . $file;
+        
     }
     
     
